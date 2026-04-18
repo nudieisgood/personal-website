@@ -1,323 +1,474 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremy Chan</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeremy Chan</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --bg: #ffffff;
-      --bg-alt: #f8fafc;
-      --text: #1a1a1a;
-      --text-muted: #6b7280;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
-      --border: #e5e7eb;
-      --radius: 12px;
-    }
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f8fafc;
+        --text: #1a1a1a;
+        --text-muted: #6b7280;
+        --accent: #3b82f6;
+        --accent-hover: #2563eb;
+        --border: #e5e7eb;
+        --radius: 12px;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .nav-logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
 
-    /* HERO */
-    #hero {
-      min-height: calc(100vh - 60px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .hero-content { max-width: 600px; }
-    .hero-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #818cf8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin: 0 auto 1.5rem;
-      color: #fff;
-      font-weight: 700;
-    }
-    .hero-greeting { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .hero-name { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -1px; }
-    .hero-title {
-      font-size: 1.2rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin: 0.5rem 0 1.2rem;
-    }
-    .hero-desc { color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; }
-    .hero-cta {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .hero-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+      /* HERO */
+      #hero {
+        min-height: calc(100vh - 60px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+      .hero-content {
+        max-width: 600px;
+      }
+      .hero-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), #818cf8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        margin: 0 auto 1.5rem;
+        color: #fff;
+        font-weight: 700;
+      }
+      .hero-greeting {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+      .hero-name {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .hero-title {
+        font-size: 1.2rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin: 0.5rem 0 1.2rem;
+      }
+      .hero-desc {
+        color: var(--text-muted);
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+      .hero-cta {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.75rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .hero-cta:hover {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+      }
 
-    /* SECTION COMMON */
-    section { padding: 5rem 2rem; }
-    section:nth-child(even) { background: var(--bg-alt); }
-    .section-inner { max-width: 800px; margin: 0 auto; }
-    .section-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 0.5rem; }
-    .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
-    .section-divider { width: 40px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 2rem; }
+      /* SECTION COMMON */
+      section {
+        padding: 5rem 2rem;
+      }
+      section:nth-child(even) {
+        background: var(--bg-alt);
+      }
+      .section-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .section-divider {
+        width: 40px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin-bottom: 2rem;
+      }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
-    .about-stats { display: flex; flex-direction: column; gap: 1rem; }
-    .stat-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .stat-icon { font-size: 1.5rem; }
-    .stat-value { font-size: 1.4rem; font-weight: 800; }
-    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .about-text p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+      .about-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .stat-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .stat-icon {
+        font-size: 1.5rem;
+      }
+      .stat-value {
+        font-size: 1.4rem;
+        font-weight: 800;
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
 
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-    .skill-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .skill-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(59,130,246,0.1); }
-    .skill-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
-    .skill-name { font-weight: 700; margin-bottom: 0.3rem; }
-    .skill-desc { font-size: 0.85rem; color: var(--text-muted); }
-    .skill-bar-bg { height: 4px; background: var(--border); border-radius: 2px; margin-top: 0.8rem; overflow: hidden; }
-    .skill-bar { height: 100%; background: var(--accent); border-radius: 2px; width: 0; transition: width 1s ease; }
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .skill-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.4rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .skill-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+      }
+      .skill-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+      }
+      .skill-name {
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      .skill-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+      .skill-bar-bg {
+        height: 4px;
+        background: var(--border);
+        border-radius: 2px;
+        margin-top: 0.8rem;
+        overflow: hidden;
+      }
+      .skill-bar {
+        height: 100%;
+        background: var(--accent);
+        border-radius: 2px;
+        width: 0;
+        transition: width 1s ease;
+      }
 
-    /* CONTACT */
-    .contact-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      text-align: center;
-    }
-    .contact-card p { color: var(--text-muted); margin-bottom: 2rem; }
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .contact-email:hover { background: var(--accent-hover); transform: translateY(-1px); }
+      /* CONTACT */
+      .contact-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        text-align: center;
+      }
+      .contact-card p {
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+      }
+      .contact-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.9rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .contact-email:hover {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+      }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
-    }
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        border-top: 1px solid var(--border);
+      }
 
-    /* ANIMATIONS */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+      /* ANIMATIONS */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-    @media (max-width: 640px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .nav-links { gap: 1rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="#hero" class="nav-logo">JC.</a>
-    <ul class="nav-links">
-      <li><a href="#about">關於我</a></li>
-      <li><a href="#skills">技能</a></li>
-      <li><a href="#contact">聯絡</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content fade-in">
-      <div class="hero-avatar">JC</div>
-      <p class="hero-greeting">Hi, 我是</p>
-      <h1 class="hero-name">Jeremy Chan</h1>
-      <p class="hero-title">Full-Stack Developer</p>
-      <p class="hero-desc">熱愛打造高品質的網頁應用程式，專注於使用者體驗與程式碼品質。</p>
-      <a href="#contact" class="hero-cta">聯絡我</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-inner fade-in">
-      <p class="section-label">About Me</p>
-      <h2 class="section-title">關於我</h2>
-      <div class="section-divider"></div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>我是一名全端工程師，擁有多年開發經驗，擅長以簡潔、高效的方式解決複雜的技術問題。</p>
-          <p>喜歡探索新技術，同時也重視程式碼的可讀性與維護性。平時喜歡貢獻開源社群，分享技術心得。</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <span class="stat-icon">🚀</span>
-            <div>
-              <div class="stat-value">3+</div>
-              <div class="stat-label">年開發經驗</div>
-            </div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">📦</span>
-            <div>
-              <div class="stat-value">20+</div>
-              <div class="stat-label">完成專案</div>
-            </div>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">⭐</span>
-            <div>
-              <div class="stat-value">GitHub</div>
-              <div class="stat-label">開源貢獻者</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner fade-in">
-      <p class="section-label">Skills</p>
-      <h2 class="section-title">技能</h2>
-      <div class="section-divider"></div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">⚛️</div>
-          <div class="skill-name">React / Vue</div>
-          <div class="skill-desc">前端框架開發，元件化設計</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="90"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🟢</div>
-          <div class="skill-name">Node.js</div>
-          <div class="skill-desc">後端 API、微服務架構</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="85"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🐍</div>
-          <div class="skill-name">Python</div>
-          <div class="skill-desc">資料處理、自動化腳本</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="75"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🗄️</div>
-          <div class="skill-name">資料庫</div>
-          <div class="skill-desc">PostgreSQL、MongoDB、Redis</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="80"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">☁️</div>
-          <div class="skill-name">雲端 / DevOps</div>
-          <div class="skill-desc">AWS、Docker、CI/CD</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="70"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🎨</div>
-          <div class="skill-name">UI / UX</div>
-          <div class="skill-desc">使用者體驗設計、響應式佈局</div>
-          <div class="skill-bar-bg"><div class="skill-bar" data-width="72"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner fade-in">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">聯絡方式</h2>
-      <div class="section-divider"></div>
-      <div class="contact-card">
-        <p>有任何合作機會或問題，歡迎透過 Email 與我聯繫，我會盡快回覆。</p>
-        <a href="mailto:your@email.com" class="contact-email">
-          <span>✉️</span> your@email.com
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Jeremy Chan · Built with ❤️</p>
-  </footer>
-
-  <script>
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Animate skill bars
-          entry.target.querySelectorAll('.skill-bar').forEach(bar => {
-            bar.style.width = bar.dataset.width + '%';
-          });
+      @media (max-width: 640px) {
+        .about-grid {
+          grid-template-columns: 1fr;
         }
-      });
-    }, { threshold: 0.15 });
+        .nav-links {
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#hero" class="nav-logo">JC.</a>
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+    </nav>
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-content fade-in">
+        <div class="hero-avatar">JC</div>
+        <p class="hero-greeting">Hi, 我是</p>
+        <h1 class="hero-name">Jeremy Chan</h1>
+        <p class="hero-title">Full-Stack Developer</p>
+        <p class="hero-desc">
+          熱愛打造高品質的網頁應用程式，專注於使用者體驗與程式碼品質。
+        </p>
+        <a href="#contact" class="hero-cta">聯絡我</a>
+      </div>
+    </section>
 
-    // Trigger hero immediately
-    document.querySelector('#hero .fade-in').classList.add('visible');
-  </script>
-</body>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-inner fade-in">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">關於我</h2>
+        <div class="section-divider"></div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              我是一名全端工程師，擁有多年開發經驗，擅長以簡潔、高效的方式解決複雜的技術問題。
+            </p>
+            <p>
+              喜歡探索新技術，同時也重視程式碼的可讀性與維護性。平時喜歡貢獻開源社群，分享技術心得。
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-icon">🚀</span>
+              <div>
+                <div class="stat-value">3+</div>
+                <div class="stat-label">年開發經驗</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">📦</span>
+              <div>
+                <div class="stat-value">20+</div>
+                <div class="stat-label">完成專案</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">⭐</span>
+              <div>
+                <div class="stat-value">GitHub</div>
+                <div class="stat-label">開源貢獻者</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-inner fade-in">
+        <p class="section-label">Skills</p>
+        <h2 class="section-title">技能</h2>
+        <div class="section-divider"></div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">⚛️</div>
+            <div class="skill-name">React / Vue</div>
+            <div class="skill-desc">前端框架開發，元件化設計</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🟢</div>
+            <div class="skill-name">Node.js</div>
+            <div class="skill-desc">後端 API、微服務架構</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🐍</div>
+            <div class="skill-name">Python</div>
+            <div class="skill-desc">資料處理、自動化腳本</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="75"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🗄️</div>
+            <div class="skill-name">資料庫</div>
+            <div class="skill-desc">PostgreSQL、MongoDB、Redis</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="80"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">☁️</div>
+            <div class="skill-name">雲端 / DevOps</div>
+            <div class="skill-desc">AWS、Docker、CI/CD</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="70"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <div class="skill-name">UI / UX</div>
+            <div class="skill-desc">使用者體驗設計、響應式佈局</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-width="72"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner fade-in">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">聯絡方式</h2>
+        <div class="section-divider"></div>
+        <div class="contact-card">
+          <p>有任何合作機會或問題，歡迎透過 Email 與我聯繫，我會盡快回覆。</p>
+          <a href="mailto:nudieisgoodmii@gmail.com" class="contact-email">
+            <span>✉️</span> nudieisgoodmii@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Jeremy Chan · Built with ❤️</p>
+    </footer>
+
+    <script>
+      // Fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Animate skill bars
+              entry.target.querySelectorAll(".skill-bar").forEach((bar) => {
+                bar.style.width = bar.dataset.width + "%";
+              });
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // Trigger hero immediately
+      document.querySelector("#hero .fade-in").classList.add("visible");
+    </script>
+  </body>
 </html>
